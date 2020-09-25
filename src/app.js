@@ -1,16 +1,14 @@
-// import express from 'express'
-const express = require('express')
+import express from 'express'
+import swaggerDocument from'./../swagger.json'
+import swaggerUi from 'swagger-ui-express'
 const app = express()
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.get('/', (req, res) => {
-    res.send('Welcome here')
+    res.status(200).send({
+        status:'success',
+        message: 'welcome to find home'
+    })
 })
 
-const port = process.env.PORT || 8050
-
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`)
-})
-
-module.exports = app
-// export default app
+export default app

@@ -1,8 +1,8 @@
-const chai = require('chai')
-const chaiHttp = require('chai-http')
-const server = require('../src/app')
+import chaiHttp from'chai-http'
+import server from'../app'
+import chai from 'chai'
 
-// //Assertion style
+
 chai.should()
 chai.use(chaiHttp)
 

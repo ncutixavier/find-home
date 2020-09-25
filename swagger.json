@@ -1,0 +1,25 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Find Home API",
+    "description": "Find Home API"
+  },
+  "schemes": ["http","https"],
+  "host": "localhost:8050",
+  "basePath": "/",
+  "paths": {
+    "/": {
+      "get": {
+        "tags": ["Welcome To Find Home API"],
+        "summary": "Gets Started",
+        "description": "Welcome to Find HOME API.",
+        "responses": {
+          "200": {
+            "description": "WELCOME!"
+          }
+        }
+      }
+    }
+  }
+}

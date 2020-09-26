@@ -2,14 +2,10 @@ import chaiHttp from 'chai-http'
 import server from '../app'
 import chai from 'chai'
 
-// chai.should()
 chai.use(chaiHttp)
 const expect = require('chai').expect;
 
 describe('FIND HOME API', () => {
-    /*
-      * Test the /GET route
-    */
     describe('/GET Welcome', () => {
         it('it should GET welcome', (done) => {
             chai.request(server)
@@ -20,9 +16,7 @@ describe('FIND HOME API', () => {
                 });
         });
     });
-    /*
-      * Test the /GET all users
-    */
+
     describe('/GET Users', () => {
         it('it should GET all users', (done) => {
             chai.request(server)

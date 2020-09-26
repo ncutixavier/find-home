@@ -29,9 +29,8 @@ describe('FIND HOME API', () => {
                 .get('/api/v1/users')
                 .end((err, res) => {
                     expect(res.statusCode).to.equal(200);
-                    expect(res.body)
-                        .to.be.an('object')
-                        .with.property('users')
+                    expect(res.body).to.be.an('object')
+                    expect(res.body).to.be.an('object').with.property('users')
                     done();
                 });
         });

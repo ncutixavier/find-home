@@ -10,11 +10,11 @@ const config = envconfig[env];
 const db = {};
 
 let sequelize;
-// if (config.url) {
+if (config.url) {
   sequelize = new Sequelize(config.url, config);
-// } else {
-  // sequelize = new Sequelize(config.database, config.username, config.password, config);
-// }
+} else {
+  sequelize = new Sequelize(config.database, config.username, config.password, config);
+}
 
 fs
   .readdirSync(__dirname)
@@ -26,11 +26,11 @@ fs
     db[model.name] = model;
   });
 
-// Object.keys(db).forEach(modelName => {
-//   if (db[modelName].associate) {
-//     db[modelName].associate(db);
-//   }
-// });
+Object.keys(db).forEach(modelName => {
+  if (db[modelName].associate) {
+    db[modelName].associate(db);
+  }
+});
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

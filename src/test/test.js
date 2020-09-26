@@ -2,9 +2,9 @@ import chaiHttp from 'chai-http'
 import server from '../app'
 import chai from 'chai'
 
-
-chai.should()
+// chai.should()
 chai.use(chaiHttp)
+const expect = require('chai').expect;
 
 describe('FIND HOME API', () => {
     /*
@@ -15,7 +15,7 @@ describe('FIND HOME API', () => {
             chai.request(server)
                 .get('/')
                 .end((err, res) => {
-                    res.should.have.status(200);
+                    expect(res.statusCode).to.equal(200);
                     done();
                 });
         });
@@ -28,8 +28,10 @@ describe('FIND HOME API', () => {
             chai.request(server)
                 .get('/api/v1/users')
                 .end((err, res) => {
-                    res.should.have.status(200);
-                    res.body.users.should.be.a('array');
+                    expect(res.statusCode).to.equal(200);
+                    expect(res.body)
+                        .to.be.an('object')
+                        .with.property('users')
                     done();
                 });
         });

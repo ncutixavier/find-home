@@ -17,6 +17,17 @@ describe('FIND HOME API', () => {
         });
     });
 
+    describe('/all Welcome', () => {
+        it('it should handle unspecified route', (done) => {
+            chai.request(server)
+                .get('/ghyy')
+                .end((err, res) => {
+                    expect(res.statusCode).to.equal(404);
+                    done();
+                });
+        });
+    });
+
     describe('/GET Users', () => {
         it('it should GET all users', (done) => {
             chai.request(server)
@@ -27,16 +38,20 @@ describe('FIND HOME API', () => {
                     expect(res.body).to.be.an('object').with.property('users')
                     done();
                 });
-        });
-
-        it('it should NOT GET all users', (done) => {
-            chai.request(server)
-                .get('/api/v1/user')
-                .end((err, res) => {
-                    expect(res.statusCode).to.equal(404);
-                    done();
-                });
-        });
+        })
     });
 
+    describe('/GET Users By ID', () => {
+        it('it should GET user by id', (done) => {
+            let id = 2
+            chai.request(server)
+                .get(`/api/v1/users/${id}`)
+                .end((err, res) => {
+                    expect(res.statusCode).to.equal(200);
+                    expect(res.body).to.be.an('object')
+                    expect(res.body).to.be.an('object').with.property('user')
+                    done();
+                });
+        })
+    });
 });

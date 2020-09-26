@@ -7,4 +7,8 @@ router.
     route('/')
     .get(userControllers.getAllUsers)
 
+router.
+    route('/:id')
+    .get(userControllers.getUser)
+    
 export default router

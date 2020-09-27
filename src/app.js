@@ -11,6 +11,10 @@ import welcomeRoutes from './routes/welcomeRoutes'
 //     "build-server": "babel -d ./build ./src -s",
 //         "build": "npm run clean && npm run build-server",
 
+
+// "build": "babel src -d dist",
+// "start": "npm run build && node ./dist/server.js",
+
 const app = express()
 
 app.use(morgan('dev'))

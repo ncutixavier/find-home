@@ -4,8 +4,8 @@ import swaggerUi from 'swagger-ui-express'
 import morgan from 'morgan'
 // import userRoutes from './routes/userRoutes'
 import welcomeRoutes from './routes/welcomeRoutes'
-import AppError from './utils/AppError'
-import GlobalErrorHandler from './controllers/errorControllers'
+// import AppError from './utils/AppError'
+// import GlobalErrorHandler from './controllers/errorControllers'
 
 
 const app = express()
@@ -16,9 +16,13 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/', welcomeRoutes)
 
 app.all('*', (req, res, next) => {
-    next(new AppError(`can't find ${req.originalUrl} on this server`, 404))
+    // next(new AppError(`can't find ${req.originalUrl} on this server`, 404))
+    res.status(404).json({
+        status: 'fail',
+        message: `can't find ${req.originalUrl} on this server`
+    })
 })
 
-app.use(GlobalErrorHandler)
+// app.use(GlobalErrorHandler)
 
 export default app

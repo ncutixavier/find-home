@@ -7,6 +7,9 @@ import welcomeRoutes from './routes/welcomeRoutes'
 // import AppError from './utils/AppError'
 // import GlobalErrorHandler from './controllers/errorControllers'
 
+// "clean": "mkdir build",
+//     "build-server": "babel -d ./build ./src -s",
+//         "build": "npm run clean && npm run build-server",
 
 const app = express()
 

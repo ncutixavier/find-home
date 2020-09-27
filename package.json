@@ -4,7 +4,8 @@
   "description": "Find Home Project",
   "main": "src/app.js",
   "scripts": {
-    "start": "node ./dist/server.js",
+    "build": "babel src -d dist",
+    "start": "npm run build && node ./dist/server.js",
     "dev": "nodemon --exec babel-node ./src/server.js",
     "test": "nyc mocha --recursive --require @babel/polyfill --require @babel/register ./src/test/test.js --timeout 20000 --exit",
     "coverage": "nyc npm run test && nyc report --reporter=text-lcov | coveralls"
@@ -49,6 +50,7 @@
     "sequelize": "^6.3.5"
   },
   "engines": {
-    "node": "12.x"
+    "node": "12.x",
+    "npm": "6.x"
   }
 }

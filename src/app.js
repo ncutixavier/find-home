@@ -1,14 +1,35 @@
 import express from 'express'
-import swaggerDocument from'./../swagger.json'
+import swaggerDocument from './../swagger.json'
 import swaggerUi from 'swagger-ui-express'
+import morgan from 'morgan'
+// import userRoutes from './routes/userRoutes'
+import welcomeRoutes from './routes/welcomeRoutes'
+// import AppError from './utils/AppError'
+// import GlobalErrorHandler from './controllers/errorControllers'
+
+// "clean": "mkdir build",
+//     "build-server": "babel -d ./build ./src -s",
+//         "build": "npm run clean && npm run build-server",
+
+
+// "build": "babel src -d dist",
+// "start": "npm run build && node ./dist/server.js",
+
 const app = express()
 
+app.use(morgan('dev'))
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.get('/', (req, res) => {
-    res.status(200).send({
-        status:'success',
-        message: 'welcome to find home'
+// app.use('/api/v1/users', userRoutes)
+app.use('/', welcomeRoutes)
+
+app.all('*', (req, res, next) => {
+    // next(new AppError(`can't find ${req.originalUrl} on this server`, 404))
+    res.status(404).json({
+        status: 'fail',
+        message: `can't find ${req.originalUrl} on this server`
     })
 })
+
+// app.use(GlobalErrorHandler)
 
 export default app

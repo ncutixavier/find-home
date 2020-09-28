@@ -6,7 +6,7 @@
     "description": "Find Home API"
   },
   "schemes": ["http","https"],
-  "host": "localhost:8050",
+  "host": "localhost:3002",
   "basePath": "/",
   "paths": {
     "/": {
@@ -17,6 +17,38 @@
         "responses": {
           "200": {
             "description": "WELCOME!"
+          }
+        }
+      }
+    },
+    "/api/v1/users": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Get all users",
+        "description": "Get all users",
+        "responses": {
+          "200": {
+            "description": "Users!"
+          }
+        }
+      }
+    },
+    "/api/v1/users/{userId}": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "description": "ID of user that we want to find",
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "tags": ["Users"],
+        "summary": "Get user with given ID",
+        "responses": {
+          "200": {
+            "description": "User is found"
           }
         }
       }

@@ -7,7 +7,7 @@
     "build": "babel src -d dist",
     "start": "npm run build && node ./dist/server.js",
     "dev": "nodemon --exec babel-node ./src/server.js",
-    "test": "nyc mocha --recursive --require @babel/polyfill --require @babel/register ./src/test/**.js --timeout 20000 --exit",
+    "test": "nyc mocha --recursive --require @babel/polyfill --require @babel/register ./src/test/**.js --timeout 200000 --exit",
     "coverage": "nyc npm run test && nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {

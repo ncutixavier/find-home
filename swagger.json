@@ -5,9 +5,13 @@
     "title": "Find Home API",
     "description": "Find Home API"
   },
+  "servers": [
+    {
+      "url": "http://localhost:3002",
+      "name": "localhost"
+    }
+  ],
   "schemes": ["http","https"],
-  "host": "localhost:3002",
-  "basePath": "/",
   "paths": {
     "/": {
       "get": {

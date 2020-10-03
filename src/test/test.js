@@ -28,18 +28,18 @@ describe('FIND HOME API', () => {
         });
     });
 
-    // describe('/GET Users', () => {
-    //     it('it should GET all users', (done) => {
-    //         chai.request(server)
-    //             .get('/api/v1/users')
-    //             .end((err, res) => {
-    //                 expect(res.statusCode).to.equal(200);
-    //                 expect(res.body).to.be.an('object')
-    //                 expect(res.body).to.be.an('object').with.property('users')
-    //                 done();
-    //             });
-    //     })
-    // });
+    describe('/GET Users', () => {
+        it('it should GET all users', (done) => {
+            chai.request(server)
+                .get('/api/v1/users')
+                .end((err, res) => {
+                    expect(res.statusCode).to.equal(200);
+                    expect(res.body).to.be.an('object')
+                    expect(res.body).to.be.an('object').with.property('users')
+                    done();
+                });
+        })
+    });
 
     // describe('/GET Users By ID', () => {
     //     it('it should GET user by id', (done) => {

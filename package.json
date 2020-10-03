@@ -10,6 +10,13 @@
     "test": "nyc mocha --recursive --require @babel/polyfill --require @babel/register ./src/test/**.js --timeout 20000 --exit",
     "coverage": "nyc npm run test && nyc report --reporter=text-lcov | coveralls"
   },
+  "nyc": {
+    "reporter": [
+      "text-summary",
+      "lcov"
+    ],
+    "all": "true"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ncutixavier/find-home.git"

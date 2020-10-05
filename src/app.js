@@ -15,7 +15,6 @@ i18n.configure({
     queryParameter: 'lang',
     directoryPermissions: '755',
     autoReload: true,
-    cookie: 'yourcookiename',
     directory: __dirname + '/../locales'
 });
 
@@ -30,11 +29,11 @@ app.get('/', (req, res) => {
     })
 })
 
-app.all('*', (req, res, next) => {
-    res.status(404).json({
-        status: 'fail',
-        message: res.__('404')
-    })
-})
+// app.all('*', (req, res, next) => {
+//     res.status(404).json({
+//         status: 'fail',
+//         message: res.__('404')
+//     })
+// })
 
 export default app

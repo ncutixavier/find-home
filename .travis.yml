@@ -1,6 +1,8 @@
 env:
   global:
     - CC_TEST_REPORTER_ID=a8ea6ed1c53014198dd308c2eb3d3b97927a604c60386c896680e2b6cbdeb5bd
+    - NODE_ENV=test
+    - DATABASE_URL_TEST=postgres://postgres@localhost:5432/ahome_test
 language: node_js
 node_js:
   - 'stable'
@@ -8,10 +10,12 @@ install: npm install
 services:
   - postgresql
 before_script:
+  - psql -c 'CREATE DATABASE ahome_test;' -U postgres
+  - npm i sequelize-cli -g
+  - npm i sequelize -g
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
-  - psql -c 'create database test_ahome;' -U postgres
 script: npm run test
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

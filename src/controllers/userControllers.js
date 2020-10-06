@@ -1,6 +1,12 @@
 import Model from '../database/models/'
-// import catchError from '../utils/catchError'
-// import AppError from '../utils/AppError'
+
+//create new user
+exports.createUser = async(req,res)=>{
+    const user = await Model.User.create(req.body)
+    res.status(200).json({
+        user
+    })
+}
 
 //get all users
 exports.getAllUsers = async(req, res) => {

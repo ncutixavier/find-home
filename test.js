@@ -28,41 +28,18 @@ describe('FIND HOME API', () => {
         });
     });
 
-    describe('/POST Create New User', () => {
-        it('it should create new user', (done) => {
-            const user = {
-                "name": "Jane Doe",
-                "email": "janedoe@gmail.com",
-                "phone": "+250788888888",
-                "role": "landlord",
-                "gender": "Female",
-                "birthdate": "1981-11-08",
-                "password": "@#EW23ER@#arsrREffTR5d5ddsdg"
-              }
-            chai.request(server)
-                .post('/api/v1/users')
-                .send(user)
-                .end((err, res) => {
-                    expect(res.statusCode).to.equal(200);
-                    expect(res.body).to.be.an('object')
-                    expect(res.body).to.be.an('object').with.property('user')
-                    done();
-                });
-        })
-    });
-
-    describe('/GET Users', () => {
-        it('it should GET all users', (done) => {
-            chai.request(server)
-                .get('/api/v1/users')
-                .end((err, res) => {
-                    expect(res.statusCode).to.equal(200);
-                    expect(res.body).to.be.an('object')
-                    expect(res.body).to.be.an('object').with.property('users')
-                    done();
-                });
-        })
-    });
+    // describe('/GET Users', () => {
+    //     it('it should GET all users', (done) => {
+    //         chai.request(server)
+    //             .get('/api/v1/users')
+    //             .end((err, res) => {
+    //                 expect(res.statusCode).to.equal(200);
+    //                 expect(res.body).to.be.an('object')
+    //                 expect(res.body).to.be.an('object').with.property('users')
+    //                 done();
+    //             });
+    //     })
+    // });
 
     // describe('/GET Users By ID', () => {
     //     it('it should GET user by id', (done) => {

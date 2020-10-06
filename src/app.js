@@ -16,7 +16,6 @@ i18n.configure({
     queryParameter: 'lang',
     directoryPermissions: '755',
     autoReload: true,
-    cookie: 'yourcookiename',
     directory: __dirname + '/../locales'
 });
 
@@ -36,7 +35,6 @@ app.get('/', (req, res) => {
 app.all('*', (req, res, next) => {
     res.status(404).json({
         status: 'fail',
-        // message: `can't find ${req.originalUrl} on this server`
         message: res.__('404')
     })
 })

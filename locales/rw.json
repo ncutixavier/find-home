@@ -2,5 +2,7 @@
     "welcome": "Application iratangiye",
     "404": "Nta nzira ihari, subira inyuma",
     "can't get users": "Habaye ikibazo mu kuzana urutonde rw'abakoresha application",
-    "fail":"Ntibikunze"
+    "fail":"Ntibikunze",
+    "success": "byakunze",
+	"can't post user": "Ntushobora gushyiramo ukoresha app"
 }

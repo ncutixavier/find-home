@@ -2,5 +2,7 @@
 	"404": "Not Found, please go back",
 	"welcome": "Application started.",
 	"can't get users": " An error occured while retrieving users.",
-	"fail": "fail"
+	"fail": "fail",
+	"success": "success",
+	"can't post user": "Can't create user"
 }

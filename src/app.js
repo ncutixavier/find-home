@@ -3,6 +3,7 @@ import bodyParser from 'body-parser'
 import i18n from 'i18n'
 import swaggerDocument from './../swagger.json'
 import swaggerUi from 'swagger-ui-express'
+import userRoutes from './routes/userRoutes'
 import morgan from 'morgan'
 
 const app = express()
@@ -22,6 +23,8 @@ app.use(i18n.init)
 
 app.use(morgan('dev'))
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+app.use('/api/v1/users', userRoutes)
 
 app.get('/', (req, res) => {
     res.status(200).json({

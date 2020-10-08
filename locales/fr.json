@@ -2,5 +2,7 @@
 	"404": "Non trouvé, veuillez revenir en arrière",
 	"welcome": "Application démarrée",
 	"fail": "échouer",
-	"success": "succès"
+	"success": "succès",
+	"can't post user": "Impossible de créer un utilisateur"
+
 }

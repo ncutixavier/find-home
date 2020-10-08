@@ -3,5 +3,6 @@
 	"welcome": "Application started.",
 	"can't get users": " An error occured while retrieving users.",
 	"fail": "fail",
-	"success": "success"
+	"success": "success",
+	"can't post user": "Can't create user"
 }

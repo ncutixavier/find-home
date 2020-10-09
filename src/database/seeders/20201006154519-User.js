@@ -3,13 +3,13 @@ module.exports = {
     'Users',
     [
       {
-        name: 'Jane Doe',
-        email: 'janedoe@gmail.com',
+        name: 'Admin',
+        email: 'admin@findhome.com',
         phone: '+250788888888',
-        role: 'landlord',
-        gender: 'Female',
+        role: 'admin',
+        gender: 'male',
         birthdate: '1981-11-08',
-        password: '@#EW23ER@#arsrREffTR5d5ddsdg',
+        password: 'pass1234',
         createdAt: new Date(),
         updatedAt: new Date(),
       }

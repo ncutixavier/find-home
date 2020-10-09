@@ -4,5 +4,9 @@
 	"can't get users": " An error occured while retrieving users.",
 	"fail": "fail",
 	"success": "success",
-	"can't post user": "Can't create user"
+	"can't post user": "Can't create user",
+	"required": "All fields must be filled",
+	"provide email & pwd": "Provide email and password",
+	"incorrect email & pwd": "Incorrect email or password",
+	"email exist": "Email is already exist"
 }

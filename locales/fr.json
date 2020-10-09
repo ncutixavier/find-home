@@ -3,6 +3,9 @@
 	"welcome": "Application démarrée",
 	"fail": "échouer",
 	"success": "succès",
-	"can't post user": "Impossible de créer un utilisateur"
-
+	"can't post user": "Impossible de créer un utilisateur",
+	"required": "Tous les champs doivent être remplis",
+	"provide email & pwd": "Fournir un e-mail et mot de passe",
+	"incorrect email & pwd": "email ou mot de passe incorrect",
+	"email exist": "L'e-mail existe déjà"
 }

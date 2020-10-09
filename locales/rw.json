@@ -1,8 +1,12 @@
 {
-    "welcome": "Application iratangiye",
-    "404": "Nta nzira ihari, subira inyuma",
-    "can't get users": "Habaye ikibazo mu kuzana urutonde rw'abakoresha application",
-    "fail":"Ntibikunze",
-    "success": "byakunze",
-	"can't post user": "Ntushobora gushyiramo ukoresha app"
+	"404": "Nta nzira ihari, subira inyuma",
+	"welcome": "Application iratangiye",
+	"can't get users": "Habaye ikibazo mu kuzana urutonde rw'abakoresha application",
+	"fail": "Ntibikunze",
+	"success": "byakunze",
+	"can't post user": "Ntushobora gushyiramo ukoresha app",
+	"required": "Imyanya yose igomba kuzuzwa",
+	"provide email & pwd": "Tanga imeri n' ijambo ry'ibanga",
+	"incorrect email & pwd": "Imeri cyangwa Ijambo ry'ibanga ntibibonetse",
+	"email exist": "Imeri isanzwe ihari, koresha indi"
 }

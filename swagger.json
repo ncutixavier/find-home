@@ -11,7 +11,7 @@
       "name": "localhost"
     }
   ],
-  "schemes": ["http","https"],
+  "schemes": ["http", "https"],
   "paths": {
     "/": {
       "get": {
@@ -37,6 +37,41 @@
         }
       }
     },
+    "/api/v1/users/signup": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "Signup",
+        "description": "Create account",
+        "operationId": "createUser",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "success"
+          },
+          "400": {
+            "description": "bad request"
+          },
+          "404": {
+            "description": "Invalid URL"
+          },
+          "409": {
+            "description": "user already exists"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/api/v1/users/{userId}": {
       "parameters": [
         {
@@ -57,5 +92,27 @@
         }
       }
     }
+  },
+  "user": {
+      "properties": {
+          "name": {
+              "type": "string"
+          },
+          "phone": {
+              "type": "string"
+          },
+          "email": {
+              "type": "string"
+          },
+          "role": {
+              "type": "string"
+          },
+          "gender": {
+              "type": "string"
+          },
+          "birthdate": {
+              "type": "date"
+          }
+      }
   }
 }

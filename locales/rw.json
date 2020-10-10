@@ -7,6 +7,12 @@
 	"can't post user": "Ntushobora gushyiramo ukoresha app",
 	"required": "Imyanya yose igomba kuzuzwa",
 	"provide email & pwd": "Tanga imeri n' ijambo ry'ibanga",
-	"incorrect email & pwd": "Imeri cyangwa Ijambo ry'ibanga ntibibonetse",
-	"email exist": "Imeri isanzwe ihari, koresha indi"
+	"incorrect pwd": "Ijambo ry'ibanga siryo",
+	"email exist": "Imeri isanzwe ihari, koresha indi",
+	"incorrect email": "Imeri ntibonetse",
+	"user deleted": "Gusiba byagenze neza",
+	"can't delete user": "Ukoresha App Ntabonetse, ntashobora gusibwa",
+	"id must be a number": "ID kuba ari umubare",
+	"id not found": "ID ntibonetse"
+
 }

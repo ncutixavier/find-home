@@ -1,7 +1,6 @@
 import Model from '../database/models/'
 import passGener from '../utils/generatePassword'
 import emails from '../utils/email'
-// import correctPasswords from '../utils/comparePassword'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
@@ -30,54 +29,38 @@ exports.signup = async (req, res) => {
             gender,
             password: hashedPwd
         })
+        const Options = {
+            email: user.email,
+            password: generatedPassword
+        }
+        emails.sendEmail(Options)
         const token = signinToken(user.id)
         res.status(200).json({
             token,
             user
         })
-        const Options ={
-            email: user.email,
-            password: generatedPassword
-        }
-        emails.sendEmail(Options)
     } catch (error) {
-        res.json({
-            message: res.__("can't post user")
-        })
-        // console.log(error.message)
+        console.log(error.message)
     }
 }
 
-// exports.login = async (req, res, next) => {
-//     const { email, password } = req.body
+exports.login = (req, res) => {
+    try {
+        const token = signinToken(req.user.id)
+        res.status(200).json({
+            token
+        })
+    } catch (error) {
+        console.log('error')
+    }
+}
 
-//     //check if email and password exist
-//     const user = await Model.User.findOne({
-//         where: { email }
-//     });
 
-//     console.log(user)
-
-//     console.log(await correctPasswords.correctPassword(password, user.password))
-
-//     if (!user || !(await correctPasswords.correctPassword(password, user.password))) {
-//         return next(
-//             res.status(401).json({
-//                 message: res.__("incorrect email & pwd")
-//             })
-//         )
-//     } else {
-//         const token = signinToken(user.id)
-//         res.status(200).json({
-//             token
-//         })
-//     }
-// }
 
 //get all users
 exports.getAllUsers = async (req, res) => {
     const users = await Model.User.findAll({
-        attributes: ['id','name', 'email', 'phone', 'role', 'birthdate', 'gender']
+        attributes: ['id', 'name', 'email', 'phone', 'role', 'birthdate', 'gender']
     })
     res.status(200).json({ users })
 }
@@ -85,18 +68,12 @@ exports.getAllUsers = async (req, res) => {
 //delete user
 exports.deleteUser = async (req, res) => {
     try {
-        const roleId = req.params.id
-        const role = await Model.User.destroy({
-            where: { id: roleId }
+        const userId = req.params.id
+        await Model.User.destroy({ where: { id: userId } });
+        res.status(200).send({
+            message: res.__("user deleted")
         });
-        if (role) {
-            res.status(200).send({
-                message: 'Role deleted Successful'
-            });
-        }
     } catch (error) {
-        res.status(404).json({
-            message: 'can\'t delete user'
-        })
+        console.log(error)
     }
 }

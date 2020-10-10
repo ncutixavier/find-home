@@ -72,6 +72,41 @@
         }
       }
     },
+    "/api/v1/users/login": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "Login",
+        "description": "Login in the system",
+        "operationId": "Login",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "success"
+          },
+          "400": {
+            "description": "bad request"
+          },
+          "404": {
+            "description": "Invalid URL"
+          },
+          "409": {
+            "description": "user already exists"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/api/v1/users/{userId}": {
       "parameters": [
         {

@@ -1,7 +1,9 @@
 import chaiHttp from 'chai-http'
 import chai from 'chai'
 import genPwd from '../utils/generatePassword'
+import comparePassword from '../utils/comparePassword'
 // import emailSend from '../utils/email'
+// import nodemailer from 'nodemailer'
 
 chai.use(chaiHttp)
 const expect = chai.expect;
@@ -12,9 +14,10 @@ describe('Test Utils', () => {
         done()
     });
 
-    // it('it should send email', (done) => {
-    //     const Options = {email:"ncuty@yahh.com",password:"password"}
-    //     expect(emailSend.sendEmail(Options)).to.be.a('function')
-    //     done()
-    // });
+    it('it should compare password', async() => {
+        let password = 'pf4ziB5w'
+        let hashedPwd = '5r4fyyt566t56'
+        expect(await comparePassword.correctPassword(password,hashedPwd)).to.be.false
+    });
+    
 })

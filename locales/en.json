@@ -7,6 +7,11 @@
 	"can't post user": "Can't create user",
 	"required": "All fields must be filled",
 	"provide email & pwd": "Provide email and password",
-	"incorrect email & pwd": "Incorrect email or password",
-	"email exist": "Email is already exist"
+	"incorrect pwd": "Incorrect password",
+	"email exist": "Email is already exist",
+	"incorrect email": "Incorrect email",
+	"user deleted": "User deleted successfully",
+	"can't delete user": "User Not Found, can't be deleted",
+	"id must be a number": "ID must be a number",
+	"id not found": "ID is not found"
 }

@@ -1,8 +1,9 @@
 import userControllers from '../controllers/userControllers'
 import userValidation from '../validation/userValidation'
-// import signinValidation from '../validation/signinValidation'
-// import checkPassword from '../middlewares/checkIfPasswordExist'
+import signinValidation from '../validation/signinValidation'
+import checkUserCredentials from '../middleware/CheckUserCredentials'
 import checkEmailExist from '../middleware/checkIfEmailExist'
+import checkIdExist from '../middleware/CheckIfIdExist'
 import express from 'express'
 
 const router = express.Router()
@@ -13,12 +14,12 @@ router.post(
     checkEmailExist.emailExists,
     userControllers.signup
 )
-// router.post(
-//     '/login', 
-//     signinValidation.signinValidate,
-//     // checkPassword.passwordExist,
-//     userControllers.login
-// )
+router.post(
+    '/login', 
+    signinValidation.signInValidate,
+    checkUserCredentials.checkEmailAndPassword,
+    userControllers.login
+)
 
 router.
     route('/')
@@ -26,6 +27,9 @@ router.
 
 router.
     route('/:id')
-    .delete(userControllers.deleteUser)
+    .delete(
+        checkIdExist.CheckId,
+        userControllers.deleteUser
+    )
 
 export default router

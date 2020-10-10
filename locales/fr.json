@@ -6,6 +6,11 @@
 	"can't post user": "Impossible de créer un utilisateur",
 	"required": "Tous les champs doivent être remplis",
 	"provide email & pwd": "Fournir un e-mail et mot de passe",
-	"incorrect email & pwd": "email ou mot de passe incorrect",
-	"email exist": "L'e-mail existe déjà"
+	"incorrect pwd": "mot de passe est incorrect",
+	"email exist": "L'e-mail existe déjà",
+	"incorrect email": "L'e-mail est incorrect",
+	"user deleted": "L'utilisateur a bien été supprimé",
+	"can't delete user": "Utilisateur introuvable, ne peut pas être supprimé",
+	"id must be a number": "ID doit être un nombre",
+	"id not found": "ID est introuvable"
 }

@@ -5,9 +5,11 @@ import swaggerDocument from './../swagger.json'
 import swaggerUi from 'swagger-ui-express'
 import userRoutes from './routes/userRoutes'
 import morgan from 'morgan'
+import cookieParser from 'cookie-parser'
 
 const app = express()
 app.use(bodyParser.json())
+app.use(cookieParser())
 
 i18n.configure({
     locales: ['en', 'fr', 'rw'],

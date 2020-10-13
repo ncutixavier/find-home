@@ -12,5 +12,11 @@
 	"user deleted": "L'utilisateur a bien été supprimé",
 	"can't delete user": "Utilisateur introuvable, ne peut pas être supprimé",
 	"id must be a number": "ID doit être un nombre",
-	"id not found": "ID est introuvable"
+	"id not found": "ID est introuvable",
+	"log in to get access": "Veuillez vous connecter pour avoir accès",
+	"permission for this action": "Vous n'êtes pas autorisé à effectuer cette action",
+	"Token expired": "Votre token a expiré, veuillez vous reconnecter",
+	"login again": "Veuillez vous reconnecter pour continuer",
+	"logout done": "Déconnexion réussie"
+
 }

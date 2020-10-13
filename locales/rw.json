@@ -13,6 +13,10 @@
 	"user deleted": "Gusiba byagenze neza",
 	"can't delete user": "Ukoresha App Ntabonetse, ntashobora gusibwa",
 	"id must be a number": "ID kuba ari umubare",
-	"id not found": "ID ntibonetse"
-
+	"id not found": "ID ntibonetse",
+	"log in to get access": "Injira kugirango ubone uburyo bwo gukomeza",
+	"permission for this action": "Ntabwo ufite uburenganzira bwo gukora iki gikorwa",
+	"Token expired": "Token yararangiye, ongera winjire",
+	"login again": "Ongera winjire kugirango ukomeze",
+	"logout done": "Gusohoka byagenze neza"
 }

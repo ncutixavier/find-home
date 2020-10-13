@@ -13,5 +13,10 @@
 	"user deleted": "User deleted successfully",
 	"can't delete user": "User Not Found, can't be deleted",
 	"id must be a number": "ID must be a number",
-	"id not found": "ID is not found"
+	"id not found": "ID is not found",
+	"log in to get access": "Please you may login to get access",
+	"permission for this action": "You do not have permission to perform this action",
+	"Token expired": "Your token expired, please login again",
+	"login again": "Please login again to continue",
+	"logout done": "Logout Successfully"
 }

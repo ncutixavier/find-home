@@ -109,16 +109,6 @@ describe('FIND HOME API', () => {
             });
     })
 
-    it('it should GET all users', (done) => {
-        chai.request(server)
-            .get('/api/v1/users')
-            .end((err, res) => {
-                expect(res.statusCode).to.equal(200);
-                expect(res.body).to.be.an('object')
-                done();
-            });
-    })
-
     it('it should DELETE user', (done) => {
         let id = 1
         chai.request(server)
@@ -128,16 +118,6 @@ describe('FIND HOME API', () => {
                 done();
             });
     })
-
-    // it('it should DELETE user', (done) => {
-    //     let id = 1
-    //     chai.request(server)
-    //         .delete('/api/v1/users/' + id)
-    //         .end((err, res) => {
-    //             expect(res.statusCode).to.equal(200);
-    //             done();
-    //         });
-    // })
 
     it('it should NOT DELETE user due to invalid ID', (done) => {
         let id = 'ewewr12gsfa'

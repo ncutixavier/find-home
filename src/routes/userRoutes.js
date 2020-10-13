@@ -15,15 +15,25 @@ router.post(
     userControllers.signup
 )
 router.post(
-    '/login', 
+    '/login',
     signinValidation.signInValidate,
     checkUserCredentials.checkEmailAndPassword,
     userControllers.login
 )
 
+router.get(
+    '/logout',
+    userControllers.protect,
+    userControllers.logout
+)
+
 router.
     route('/')
-    .get(userControllers.getAllUsers)
+    .get(
+        userControllers.protect,
+        userControllers.restrictTo('admin'),
+        userControllers.getAllUsers
+    )
 
 router.
     route('/:id')

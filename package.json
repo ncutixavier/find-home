@@ -7,8 +7,8 @@
     "migrate": "npx sequelize-cli db:migrate",
     "migrate:reset": "npx sequelize-cli db:migrate:undo && npm run migrate",
     "seeding": "npx sequelize-cli db:seed:all",
-    "migrateDB": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
     "migrateTest": "npx sequelize-cli db:migrate:undo:all && npm run migrate && npm run seeding",
+    "migrateDB": "npx sequelize-cli db:migrate:undo && npm run migrate && npm run seeding",
     "build": "babel src -d dist",
     "start": "npm run migrateDB && npm run build && node ./dist/server.js",
     "dev": "nodemon --exec babel-node ./src/server.js",
@@ -47,6 +47,8 @@
   "dependencies": {
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "i18n": "^0.13.2",
@@ -57,7 +59,8 @@
     "pg": "^8.3.3",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.5",
-    "swagger-ui-express": "^4.1.4"
+    "swagger-ui-express": "^4.1.4",
+    "util": "^0.12.3"
   },
   "engines": {
     "node": "12.x",

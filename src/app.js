@@ -5,11 +5,9 @@ import swaggerDocument from './../swagger.json'
 import swaggerUi from 'swagger-ui-express'
 import userRoutes from './routes/userRoutes'
 import morgan from 'morgan'
-import cookieParser from 'cookie-parser'
 
 const app = express()
 app.use(bodyParser.json())
-app.use(cookieParser())
 
 i18n.configure({
     locales: ['en', 'fr', 'rw'],
@@ -36,9 +34,15 @@ app.get('/', (req, res) => {
 
 app.all('*', (req, res, next) => {
     res.status(404).json({
-        status: 'fail',
         message: res.__('404')
     })
 })
+
+const port = process.env.PORT || 3002
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`)
+})
+
 
 export default app

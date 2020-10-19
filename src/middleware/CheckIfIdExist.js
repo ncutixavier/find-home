@@ -20,7 +20,5 @@ exports.CheckId = async (req, res, next) => {
             })
         )
     }
-
-    console.log('user = ', userId)
     next()
 }

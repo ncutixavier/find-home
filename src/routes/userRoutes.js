@@ -1,9 +1,10 @@
-import userControllers from '../controllers/userControllers'
+import userController from '../controllers/userControllers'
 import userValidation from '../validation/userValidation'
 import signinValidation from '../validation/signinValidation'
 import checkUserCredentials from '../middleware/CheckUserCredentials'
 import checkEmailExist from '../middleware/checkIfEmailExist'
 import checkIdExist from '../middleware/CheckIfIdExist'
+import protectRoutes from '../middleware/protectRoutes'
 import express from 'express'
 
 const router = express.Router()
@@ -12,34 +13,34 @@ router.post(
     '/signup',
     userValidation.userValidate,
     checkEmailExist.emailExists,
-    userControllers.signup
+    userController.signup
 )
 router.post(
     '/login',
     signinValidation.signInValidate,
     checkUserCredentials.checkEmailAndPassword,
-    userControllers.login
+    userController.login
 )
 
 router.get(
     '/logout',
-    userControllers.protect,
-    userControllers.logout
+    protectRoutes.protect,
+    userController.logout
 )
 
 router.
     route('/')
     .get(
-        userControllers.protect,
-        userControllers.restrictTo('admin'),
-        userControllers.getAllUsers
+        protectRoutes.protect,
+        protectRoutes.restrictTo('admin'),
+        userController.getAllUsers
     )
 
 router.
     route('/:id')
     .delete(
         checkIdExist.CheckId,
-        userControllers.deleteUser
+        userController.deleteUser
     )
 
 export default router

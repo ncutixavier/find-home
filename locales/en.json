@@ -18,5 +18,16 @@
 	"permission for this action": "You do not have permission to perform this action",
 	"Token expired": "Your token expired, please login again",
 	"login again": "Please login again to continue",
-	"logout done": "Logout Successfully"
+	"logout done": "Logout Successfully",
+	"email is required": "Email is required",
+	"provide valid email": "Please provide a valid email",
+	"password is required": "Password should be required",
+	"name is required": "name should be required",
+	"Phone should be at least 10 digits": "Phone should be at least 10 digits",
+	"Phone should be required": "Phone should be required",
+	"gender should be not more 8 characters": "gender should be not more 8 characters",
+	"gender is required": "gender is required",
+	"birthdate is required": "birthdate is required",
+	"role is required": "role is required",
+	"role should be [landlord, client]": "role should be [landlord, client]"
 }

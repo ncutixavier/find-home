@@ -9,6 +9,8 @@
 	"provide email & pwd": "Tanga imeri n' ijambo ry'ibanga",
 	"incorrect pwd": "Ijambo ry'ibanga siryo",
 	"email exist": "Imeri isanzwe ihari, koresha indi",
+	"email is required": "Imeri irakenewe",
+	"provide valid email": "Shyiramo imeri yemewe",
 	"incorrect email": "Imeri ntibonetse",
 	"user deleted": "Gusiba byagenze neza",
 	"can't delete user": "Ukoresha App Ntabonetse, ntashobora gusibwa",
@@ -18,5 +20,6 @@
 	"permission for this action": "Ntabwo ufite uburenganzira bwo gukora iki gikorwa",
 	"Token expired": "Token yararangiye, ongera winjire",
 	"login again": "Ongera winjire kugirango ukomeze",
-	"logout done": "Gusohoka byagenze neza"
+	"logout done": "Gusohoka byagenze neza",
+	"password is required": "password irakenewe"
 }

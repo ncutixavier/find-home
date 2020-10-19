@@ -17,6 +17,8 @@
 	"permission for this action": "Vous n'êtes pas autorisé à effectuer cette action",
 	"Token expired": "Votre token a expiré, veuillez vous reconnecter",
 	"login again": "Veuillez vous reconnecter pour continuer",
-	"logout done": "Déconnexion réussie"
-
+	"logout done": "Déconnexion réussie",
+	"email is required": "l'email est requis",
+	"provide valid email": "Veuillez fournir un email valide",
+	"password is required": "Mot de passe requis"
 }

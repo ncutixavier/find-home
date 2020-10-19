@@ -8,7 +8,6 @@ exports.checkEmailAndPassword = async (req, res, next) => {
         where: { email }
     });
 
-    // console.log(user, "Found")
     if (!user) {
         return next(
             res.status(404).json({

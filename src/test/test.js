@@ -31,8 +31,7 @@ describe('FIND HOME API', () => {
             "phone": "+250788888888",
             "role": "client",
             "gender": "Female",
-            "birthdate": "1981-01-01",
-            "password": "#utyGFFGt6ds6wg"
+            "birthdate": "1981-01-01"
         }
         chai.request(server)
             .post('/api/v1/users/signup')

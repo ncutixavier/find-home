@@ -5,32 +5,17 @@ exports.signInValidate = (req, res, next) => {
         email: Joi.string()
             .required()
             .email()
-            .error(errors => {
-                errors.forEach(err => {
-                    switch (err.code) {
-                        case "string.email":
-                            err.message = res.__("provide valid email")
-                            break
-
-                        case "any.required":
-                            err.message = res.__('email is required')
-                            break
-                    }
-                })
-                return errors
+            .messages({
+                "string.email": res.__("provide valid email"),
+                "any.required": res.__('email is required'),
+                "string.empty": res.__('email is required')
             }),
         password: Joi.string()
             .required()
-            .error(errors => {
-                errors.forEach(err => {
-                    switch (err.code) {
-                        case "any.required":
-                            err.message = res.__('password is required')
-                            break
-                    }
-                })
-                return errors
-            }),
+            .messages({
+                "any.required": res.__('password is required'),
+                "string.empty": res.__('password is required')
+            })
     });
     const result = userValidation.validate(req.body);
     if (result.error) return res.status(400).json({ message: result.error.details[0].message });

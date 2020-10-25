@@ -22,3 +22,15 @@ exports.CheckId = async (req, res, next) => {
     }
     next()
 }
+
+exports.checkEmailExist = async (req, res, next) => {
+    //1. Check user email
+    const user = await Model.User.findOne({where: { email: req.body.email }})
+    if (!user) {
+        res.status(404).json({
+            message: res.__("user not found")
+        })
+        return false
+    }
+    next()
+}

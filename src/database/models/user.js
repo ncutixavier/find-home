@@ -6,7 +6,9 @@ module.exports = (sequelize, DataTypes) => {
     role: DataTypes.STRING,
     password: DataTypes.STRING,
     birthdate: DataTypes.DATE,
-    gender: DataTypes.STRING
+    gender: DataTypes.STRING,
+    passwordResetToken: DataTypes.STRING, 
+    passwordResetExpires: DataTypes.STRING
   }, {});
   return User;
 };

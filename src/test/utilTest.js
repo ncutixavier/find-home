@@ -2,6 +2,8 @@ import chaiHttp from 'chai-http'
 import chai from 'chai'
 import genPwd from '../utils/generatePassword'
 import comparePassword from '../utils/comparePassword'
+import passwordResetToken from '../utils/passwordResetToken'
+import messageMock from '../utils/messageMocks'
 // import emailSend from '../utils/email'
 // import nodemailer from 'nodemailer'
 
@@ -14,10 +16,25 @@ describe('Test Utils', () => {
         done()
     });
 
-    it('it should compare password', async() => {
+    it('it should compare password', async () => {
         let password = 'pf4ziB5w'
         let hashedPwd = '5r4fyyt566t56'
-        expect(await comparePassword.correctPassword(password,hashedPwd)).to.be.false
+        expect(await comparePassword.correctPassword(password, hashedPwd)).to.be.false
     });
-    
+
+    it('it should return reset token', async () => {
+        let email = 'ncuti@gmail.com'
+        expect(await passwordResetToken.createPasswordResetToken(email)).to.be.a('string')
+    });
+
+    it('it should return reset password message', async () => {
+        let url = 'http://localhost:3002/api/v1/users'
+        expect(messageMock.resetPasswordMessage(url)).to.be.a('string')
+    });
+
+    it('it should return sign up message', async () => {
+        let email = 'ncuti@yahoo.fr'
+        expect(messageMock.signUpMessage(email)).to.be.a('string')
+    });
+
 })

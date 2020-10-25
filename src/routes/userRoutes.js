@@ -3,7 +3,7 @@ import userValidation from '../validation/userValidation'
 import signinValidation from '../validation/signinValidation'
 import checkUserCredentials from '../middleware/CheckUserCredentials'
 import checkEmailExist from '../middleware/checkIfEmailExist'
-import checkIdExist from '../middleware/CheckIfIdExist'
+import checkExist from '../middleware/CheckExist'
 import protectRoutes from '../middleware/protectRoutes'
 import express from 'express'
 
@@ -20,6 +20,21 @@ router.post(
     signinValidation.signInValidate,
     checkUserCredentials.checkEmailAndPassword,
     userController.login
+)
+
+router.post(
+    '/forgotPassword',
+    checkExist.checkEmailExist,
+    userController.forgotPassword
+)
+
+router.patch('/resetPassword/:token', userController.resetPassword)
+
+router.patch(
+    '/profile',
+    userValidation.userUpdateValidate,
+    protectRoutes.protect,
+    userController.updateProfile
 )
 
 router.get(
@@ -39,7 +54,9 @@ router.
 router.
     route('/:id')
     .delete(
-        checkIdExist.CheckId,
+        protectRoutes.protect,
+        protectRoutes.restrictTo('admin'),
+        checkExist.CheckId,
         userController.deleteUser
     )
 

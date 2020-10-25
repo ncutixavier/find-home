@@ -20,11 +20,8 @@ i18n.configure({
 });
 
 app.use(i18n.init)
-
 app.use(morgan('dev'))
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
-app.use('/api/v1/users', userRoutes)
 
 app.get('/', (req, res) => {
     res.status(200).json({
@@ -32,17 +29,17 @@ app.get('/', (req, res) => {
     })
 })
 
-app.all('*', (req, res, next) => {
+app.use('/api/v1/users', userRoutes)
+
+
+app.all('*', (req, res) => {
     res.status(404).json({
         message: res.__('404')
     })
 })
 
-const port = process.env.PORT || 3002
+const PORT = process.env.PORT || 3002
 
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`)
-})
-
+app.listen(PORT, () => console.info(`Running on port ${PORT}`))
 
 export default app

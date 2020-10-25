@@ -15,14 +15,14 @@ module.exports = {
       },
       {
         name: "Admin",
-        email: "landlord@findhome.com",
+        email: "admin@findhome.com",
         phone: "+250788888888",
-        role: "landlord",
         birthdate: "1981-11-08T00:00:00.000Z",
+        role: "admin",
         gender: "male",
-        password: "$2b$12$YKJpWRee9N0EzOxVfzXqW.vdeALgWwNz.GulHqyCayjir.HHuLzX2",
-        createdAt: new Date(),
-        updatedAt: new Date()
+        password: "$2b$12$xa77ulvMDgbQhQoLkasA1.fK2QQt1CZuV1qNnNWNxLzQ.kWhtp5nq",
+        updatedAt: new Date(),
+        createdAt: new Date()
       }
     ],
     {},

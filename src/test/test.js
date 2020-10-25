@@ -1,5 +1,6 @@
 import chaiHttp from 'chai-http'
 import chai from 'chai'
+import mocks from './mocks/mocks'
 import server from '../app'
 
 chai.use(chaiHttp)
@@ -112,6 +113,7 @@ describe('FIND HOME API', () => {
         let id = 1
         chai.request(server)
             .delete('/api/v1/users/' + id)
+            .set('Authorization', `Bearer ${mocks.tokens.admin}`)
             .end((err, res) => {
                 expect(res.statusCode).to.equal(200);
                 done();
@@ -122,6 +124,7 @@ describe('FIND HOME API', () => {
         let id = 'ewewr12gsfa'
         chai.request(server)
             .delete('/api/v1/users/' + id)
+            .set('Authorization', `Bearer ${mocks.tokens.admin}`)
             .end((err, res) => {
                 expect(res.statusCode).to.equal(500);
                 done();
@@ -132,6 +135,7 @@ describe('FIND HOME API', () => {
         let id = '12'
         chai.request(server)
             .delete('/api/v1/users/' + id)
+            .set('Authorization', `Bearer ${mocks.tokens.admin}`)
             .end((err, res) => {
                 expect(res.statusCode).to.equal(404);
                 done();

@@ -1,11 +1,11 @@
 import Model from '../database/models/'
 import jwt from 'jsonwebtoken'
-import localStorage from 'localStorage'
+// import localStorage from 'localStorage'
 
 exports.protect = async (req, res, next) => {
-    let token = localStorage.getItem('token')
+    let token //= localStorage.getItem('token')
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
-        token = req.headers.authorization.split(' ')[1] || token
+        token = req.headers.authorization.split(' ')[1] //|| token
     }
 
     if (!token) {

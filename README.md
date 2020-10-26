@@ -41,4 +41,4 @@
 - Run `npm test` to run tests
 
 ### Api Documentation
-[Swagger Documentation](find-home-apps-staging.herokuapp.com/api-docs)
+[Swagger Documentation](http://find-home-apps-staging.herokuapp.com/api-docs/)

@@ -5,7 +5,7 @@
   "main": "src/app.js",
   "scripts": {
     "migrate": "npx sequelize-cli db:migrate",
-    "migrate:reset": "npx sequelize-cli db:migrate:undo && npm run migrate",
+    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
     "seeding": "npx sequelize-cli db:seed:all",
     "migrateTest": "npx sequelize-cli db:migrate:undo:all && npm run migrate && npm run seeding",
     "migrateDB": "npx sequelize-cli db:migrate:undo && npm run migrate && npm run seeding",
@@ -58,6 +58,7 @@
     "localStorage": "^1.0.4",
     "morgan": "^1.10.0",
     "nodemailer": "^6.4.13",
+    "paginate-info": "^1.0.4",
     "pg": "^8.3.3",
     "pg-hstore": "^2.3.3",
     "redis": "^3.0.2",

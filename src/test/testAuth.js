@@ -39,7 +39,7 @@ describe('PHANTOM API - AUTH', () => {
     it('it should Not GET All Users without permission', (done) => {
         chai.request(server)
             .get('/api/v1/users')
-            .set('Authorization', `Bearer ${mocks.tokens.client}`)
+            .set('Authorization', `Bearer ${mocks.tokens.landlord}`)
             .end((err, res) => {
                 expect(res.statusCode).to.equal(403);
                 done();
@@ -140,7 +140,8 @@ describe('PHANTOM API - AUTH', () => {
 
     it('It should update user profile', (done) => {
         const password = {
-            "phone": "+250787876543",
+            "email": "admin@findhome.com",
+            "phone": "+250787876543"
         }
         chai.request(server)
             .patch('/api/v1/users/profile')
@@ -148,6 +149,20 @@ describe('PHANTOM API - AUTH', () => {
             .send(password)
             .end((err, res) => {
                 expect(res.statusCode).to.equal(200);
+                done();
+            });
+    });
+
+    it('It should not update user profile', (done) => {
+        const password = {
+            "phone": "+250787876543"
+        }
+        chai.request(server)
+            .patch('/api/v1/users/profile')
+            .set('Authorization', `Bearer ${mocks.tokens.admin}`)
+            .send(password)
+            .end((err, res) => {
+                expect(res.statusCode).to.equal(401);
                 done();
             });
     });

@@ -4,6 +4,7 @@ import i18n from 'i18n'
 import swaggerDocument from './../swagger.json'
 import swaggerUi from 'swagger-ui-express'
 import userRoutes from './routes/userRoutes'
+import houseRoutes from './routes/houseRoutes'
 import morgan from 'morgan'
 
 const app = express()
@@ -30,6 +31,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/v1/users', userRoutes)
+app.use('/api/v1/houses', houseRoutes)
 
 
 app.all('*', (req, res) => {
@@ -38,7 +40,7 @@ app.all('*', (req, res) => {
     })
 })
 
-const PORT = process.env.PORT || 3002
+const PORT = process.env.PORT
 
 app.listen(PORT, () => console.info(`Running on port ${PORT}`))
 

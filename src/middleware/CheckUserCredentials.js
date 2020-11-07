@@ -9,15 +9,13 @@ exports.checkEmailAndPassword = async (req, res, next) => {
     });
 
     if (!user) {
-        return next(
-            res.status(404).json({
-                message: res.__("incorrect email")
-            })
-        )
+        return res.status(404).json({
+            message: res.__("incorrect email")
+        })
     }
 
     if (!await correctPassword.correctPassword(password, user.password)) {
-        res.status(404).json({
+        return res.status(404).json({
             message: res.__("incorrect pwd")
         })
     }

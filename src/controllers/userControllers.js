@@ -37,27 +37,29 @@ class userController {
             }
             emails.sendEmail(Options)
             // const token = signinToken(user.id)
-            res.status(200).json({
+            return res.status(200).json({
                 message: res.__("register successfully"),
                 user
             })
         } catch (error) {
-            res.status(500).json({
+            return res.status(500).json({
                 message: "error occurred while sending email"
             })
         }
     }
 
-    static async login(req, res, next) {
+    static async login(req, res) {
         try {
             const token = signinToken(req.user.id)
             localStorage.setItem('token', token)
-            res.status(200).json({
+            
+            return res.status(200).json({
                 token
             })
-            next()
         } catch (error) {
-            console.log('error')
+            return res.status(500).json({
+                message: res.__("unable to login")
+            })
         }
     }
 
@@ -66,7 +68,7 @@ class userController {
         const users = await Model.User.findAll({
             attributes: { exclude: ['password', 'passwordResetToken', 'passwordResetExpires'] }
         })
-        res.status(200).json({ users })
+        return res.status(200).json({ users })
     }
 
     //delete user
@@ -74,25 +76,26 @@ class userController {
         try {
             const userId = req.params.id
             await Model.User.destroy({ where: { id: userId } });
-            res.status(200).send({
+            return res.status(200).send({
                 message: res.__("user deleted")
             });
         } catch (error) {
-            console.log(error)
+            return res.status(500).json({
+                message: res.__("can't delete user")
+            })
         }
     }
 
 
     static async logout(req, res) {
         localStorage.removeItem('token')
-        res.status(200).json({
+        return res.status(200).json({
             message: res.__("logout done")
         })
     }
 
     static async forgotPassword(req, res) {
         const resetToken = await passwordResetToken.createPasswordResetToken(req.body.email)
-        console.log(resetToken)
 
         //2. create reset url
         const resetUrl = `${req.protocol}://${req.get('host')}/api/v1/users/resetPassword/${resetToken}`
@@ -104,7 +107,7 @@ class userController {
         }
         //3. Send reset url link to user
         emails.sendEmail(Options)
-        res.status(200).json({
+        return res.status(200).json({
             message: res.__("password reset link")
         })
 
@@ -132,6 +135,7 @@ class userController {
             })
             return false
         }
+
         const updateUserInfo = {
             password: await bcrypt.hash(req.body.password, 12),
             passwordResetToken: null,
@@ -143,7 +147,7 @@ class userController {
             const userUpdated = await Model.User.findOne({ where: { email: user.email } })
 
             const token = signinToken(user.id)
-            res.status(200).json({
+            return res.status(200).json({
                 token,
                 userUpdated
             })
@@ -152,6 +156,14 @@ class userController {
     }
 
     static async updateProfile(req, res) {
+        
+        if(req.body.email != req.user.email){
+            res.status(401).json({
+                message: res.__("not allowed to update email")
+            })
+            return false
+        }
+
         const updated = await Model.User.update(req.body, { where: { email: req.user.email } });
         if (updated) {
             const updatedUserInfo = await Model.User.findOne({
@@ -159,7 +171,7 @@ class userController {
                 attributes: { exclude: ['password', 'passwordResetToken', 'passwordResetExpires'] }
             })
 
-            res.status(200).json({
+            return res.status(200).json({
                 updatedUserInfo
             })
         }

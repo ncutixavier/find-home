@@ -1,9 +1,10 @@
 exports.tokens = {
-    client: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjAzNjE4NjM3LCJleHAiOjE2MTEzOTQ2Mzd9.ztky5edRBTVj_QGRx9uT3PxzKH_SJC9FU4V_HQlifg0",
-    admin: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjAyNjA2MzYyLCJleHAiOjE2MTAzODIzNjJ9.9-Iprs1WR5M2IZ-wh99h91mG3uW4NvJ0MMnkT75o63c`,
+    client: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjA0NzU0NjgxLCJleHAiOjE2MTI1MzA2ODF9.SJ1ApTM7VjCMF6fVq06wCijdzRMXhDHH64gk8LAnKw4",
+    admin: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjA0NzU0NjQzLCJleHAiOjE2MTI1MzA2NDN9.59-SnYGFy9m2woBL-h8K3qbt05TMLahjHYIO1IexZS0`,
     incorrect: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNjAyNjA1MjY5LCJleHAiOjE2MTAzODEyNjl9.e06hhlNs3Mdzh8qUW3Y8hNBpQsfaRo_8Eo14hnx07Lq`,
     resetTokenExpired: `693b7387921fc52c02f1be9fbfb6d8881b5e45b2a59d8f1427de7eb9a12d3d33`,
-    resetToken: `693b7387921fc52c02f1be9fbfb6d8881b5e45b2a59d8f1427de7eb9a12d3d33`
+    resetToken: `693b7387921fc52c02f1be9fbfb6d8881b5e45b2a59d8f1427de7eb9a12d3d33`,
+    landlord: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjA0NzU0NzYwLCJleHAiOjE2MTI1MzA3NjB9.dfJebkFMrcmQrU8xNVmp8AS2LdzODJ4556lefOAlNoM'
 }
 
 exports.invalidEmail = {
@@ -16,4 +17,23 @@ exports.nameNotFound = {
     "role": "client",
     "gender": "Female",
     "birthdate": "1981-01-01"
+}
+
+exports.updateHouse = {
+    "image": "house_30.jpg",
+    "description": "Some description...",
+    "location": "Gikondo",
+    "bedrooms": 3,
+    "bathrooms": 1,
+    "price": 45000,
+    "status": "available"
+}
+
+exports.notAddHouse = {
+    "description": "fghdsggdgh",
+    "location": "Gikondo",
+    "bedrooms": 3,
+    "bathrooms": 1,
+    "price": 45000,
+    "status": "available"
 }

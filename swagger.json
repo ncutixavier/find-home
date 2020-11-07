@@ -212,6 +212,177 @@
           }
         }
       }
+    },
+    "/api/v1/houses": {
+      "post": {
+        "tags": ["Houses"],
+        "summary": "add new house",
+        "description": "Return new house",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string",
+            "description": "token"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Enter house details",
+            "schema": {
+              "$ref": "#/components/schemas/house"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "house added"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Houses"],
+        "summary": "get houses",
+        "description": "Return houses",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string",
+            "description": "token"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "house added"
+          }
+        }
+      }
+    },
+    "/api/v1/houses/?page={page}&limit={limit}": {
+      "get": {
+        "tags": ["Houses"],
+        "summary": "get houses by pagination",
+        "description": "Return houses",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string",
+            "description": "token"
+          },
+          {
+            "in": "path",
+            "name": "page",
+            "required": true,
+            "type": "integer",
+            "default": 1
+          },
+          {
+            "in": "path",
+            "name": "limit",
+            "required": true,
+            "type": "integer",
+            "default": 10
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "house added"
+          }
+        }
+      }
+    },
+    "/api/v1/houses/{id}": {
+      "get": {
+        "tags": ["Houses"],
+        "summary": "get houses",
+        "description": "Return houses",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string",
+            "description": "token"
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "description": "id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "house added"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["Houses"],
+        "summary": "update existing house",
+        "description": "Return updated house",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string",
+            "description": "token"
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "description": "id"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Enter house details",
+            "schema": {
+              "$ref": "#/components/schemas/house"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "house added"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Houses"],
+        "summary": "delete existing house",
+        "description": "delete house",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string",
+            "description": "token"
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "description": "id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -257,6 +428,31 @@
       "forgotPassword": {
         "email": {
           "type": "string"
+        }
+      },
+      "house": {
+        "properties": {
+          "image": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "bedrooms": {
+            "type": "integer"
+          },
+          "bathrooms": {
+            "type": "integer"
+          },
+          "price": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "string"
+          }
         }
       }
     }

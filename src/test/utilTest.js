@@ -4,6 +4,7 @@ import genPwd from '../utils/generatePassword'
 import comparePassword from '../utils/comparePassword'
 import passwordResetToken from '../utils/passwordResetToken'
 import messageMock from '../utils/messageMocks'
+import paginator from '../utils/paginate'
 // import emailSend from '../utils/email'
 // import nodemailer from 'nodemailer'
 
@@ -23,7 +24,7 @@ describe('Test Utils', () => {
     });
 
     it('it should return reset token', async () => {
-        let email = 'ncuti@gmail.com'
+        let email = 'ncuti65@gmail.com'
         expect(await passwordResetToken.createPasswordResetToken(email)).to.be.a('string')
     });
 
@@ -37,4 +38,9 @@ describe('Test Utils', () => {
         expect(messageMock.signUpMessage(email)).to.be.a('string')
     });
 
+    it('it should return pagination', async () => {
+        let query = {where: {userId: 1}}
+        let paging = {page: 1, limit: 10}
+        expect(paginator.paginate(query, paging)).to.be.an('object')
+    });
 })

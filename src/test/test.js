@@ -83,7 +83,7 @@ describe('FIND HOME API', () => {
     it('it should login with a valid credentials', (done) => {
         const user = {
             "email": "ncuti65@gmail.com",
-            "password": "pf4ziB5w"
+            "password": "landlord"
         }
         chai.request(server)
             .post('/api/v1/users/login')
@@ -121,7 +121,7 @@ describe('FIND HOME API', () => {
     })
 
     it('it should NOT DELETE user due to invalid ID', (done) => {
-        let id = 'ewewr12gsfa'
+        let id = '1fgrtrhfdh'
         chai.request(server)
             .delete('/api/v1/users/' + id)
             .set('Authorization', `Bearer ${mocks.tokens.admin}`)

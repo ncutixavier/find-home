@@ -9,7 +9,13 @@ module.exports = (sequelize, DataTypes) => {
     status: DataTypes.STRING,
     userId: DataTypes.INTEGER
   }, {});
-  House.associate = function(models) {
+  House.associate = function (models) {
+    House.hasMany(models.Comment, {
+      foreignKey: 'houseId',
+      as: 'comments',
+      onDelete: 'CASCADE',
+    });
+
     House.belongsTo(models.User, {
       foreignKey: 'userId',
       as: 'landlord',

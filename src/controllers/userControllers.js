@@ -36,7 +36,6 @@ class userController {
                 message: messages.signUpMessage(user.email, generatedPassword, user.role)
             }
             emails.sendEmail(Options)
-            // const token = signinToken(user.id)
             return res.status(200).json({
                 message: res.__("register successfully"),
                 user
@@ -52,9 +51,15 @@ class userController {
         try {
             const token = signinToken(req.user.id)
             localStorage.setItem('token', token)
+
+            req.user.passwordResetExpires = undefined
+            req.user.password = undefined
+            req.user.passwordResetToken = undefined
             
+            let user = req.user
             return res.status(200).json({
-                token
+                token,
+                user
             })
         } catch (error) {
             return res.status(500).json({

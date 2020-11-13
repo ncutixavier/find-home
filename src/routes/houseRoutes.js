@@ -1,7 +1,8 @@
 import houseController from '../controllers/houseControllers'
 import protectRoute from '../middleware/protectRoutes'
 import checkExist from '../middleware/CheckExist'
-import houseValidation from '../validation/houseValidation' 
+import houseValidation from '../validation/houseValidation'
+import commentController from '../controllers/commentControllers'
 import express from 'express'
 
 const router = express.Router()
@@ -21,6 +22,13 @@ router
     )
 
 router.get('/view', houseController.getAllHouses)
+
+router.get(
+    '/getHouseCommented',
+    protectRoute.protect,
+    protectRoute.restrictTo('client', 'admin'),
+    commentController.getHouseCommented
+)
 
 router
     .route('/:id')
@@ -44,6 +52,20 @@ router
         checkExist.checkHouseId,
         checkExist.checkIdMatch,
         houseController.deleteHouse
-    )
+)
+
+router.post(
+    '/:houseId/createComment',
+    protectRoute.protect,
+    protectRoute.restrictTo('client', 'admin'),
+    commentController.createComment
+)
+
+router.get(
+    '/:houseId/getComments',
+    protectRoute.protect,
+    protectRoute.restrictTo('landlord', 'admin'),
+    commentController.getComments
+)
 
 export default router

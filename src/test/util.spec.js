@@ -43,4 +43,8 @@ describe('Test Utils', () => {
         let paging = {page: 1, limit: 10}
         expect(paginator.paginate(query, paging)).to.be.an('object')
     });
+
+    it('it should return comment message', async () => {
+        expect(messageMock.commentMessage('client','location','+250000','email')).to.be.a('string')
+    });
 })

@@ -82,6 +82,18 @@ describe('PHANTOM API - HOUSE', () => {
             });
     })
 
+    //Add new comment
+    it('should not add new comment', (done) => {
+        chai.request(server)
+            .post('/api/v1/houses/1/createComment')
+            .set('Authorization', `Bearer ${mocks.tokens.client}`)
+            .send({"comment":"Comment..."})
+            .end((err, res) => {
+                expect(res.statusCode).to.equal(200);
+                done();
+            });
+    })
+
      //Add New House
      it('should not add new house due to validation', (done) => {
         chai.request(server)
@@ -129,17 +141,6 @@ describe('PHANTOM API - HOUSE', () => {
                 done();
             });
     })
-
-    // it('should not delete house due to invalid id', (done) => {
-    //     let id = '2fffff'
-    //     chai.request(server)
-    //         .delete('/api/v1/houses/' + id)
-    //         .set('Authorization', `Bearer ${mocks.tokens.landlord}`)
-    //         .end((err, res) => {
-    //             expect(res.statusCode).to.equal(500);
-    //             done();
-    //         });
-    // })
 
     it('should delete house', (done) => {
         let id = 2

@@ -10,10 +10,16 @@ module.exports = (sequelize, DataTypes) => {
     passwordResetToken: DataTypes.STRING, 
     passwordResetExpires: DataTypes.STRING
   }, {});
+
   User.associate = function(models) {
     User.hasMany(models.House, {
       foreignKey: 'userId',
       as: 'houses',
+      onDelete: 'CASCADE',
+    });
+    User.hasMany(models.Comment, {
+      foreignKey: 'userId',
+      as: 'comments',
       onDelete: 'CASCADE',
     });
   };

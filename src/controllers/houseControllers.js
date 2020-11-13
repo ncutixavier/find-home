@@ -96,16 +96,10 @@ class houseController {
     }
 
     static async deleteHouse(req, res) {
-        try {
-            await House.destroy({ where: { id: req.params.id } })
-            res.status(200).json({
-                message: res.__("deleted successfully")
-            })
-        } catch (error) {
-            res.status(500).json({
-                message: res.__("can't delete house")
-            })
-        }
+        await House.destroy({ where: { id: req.params.id } })
+        res.status(200).json({
+            message: res.__("deleted successfully")
+        })
     }
 }
 

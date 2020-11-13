@@ -20,3 +20,14 @@ exports.resetPasswordMessage = resetUrl =>{
     </div>
     `
 }
+
+exports.commentMessage = (client, location, phone, email) => {
+    return `
+    <div style="font-size:15px;box-shadow:4px 4px 2px;padding:10px;color:#000">
+    <h1 style="font-size:25px;color:#2E86C1;">Find Home App - Notification</h1>
+    <p style="color:#000;font-size:17px">${client} would like to discuss with you about your house located at <b>${location}</b>.
+    You may reach out on Phone Number: <b>${phone}</b> or email: <b>${email}</b><p>
+    </div>
+    `
+}
+

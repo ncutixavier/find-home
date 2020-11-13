@@ -56,7 +56,27 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "#/components/schemas/user"
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "phone": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "gender": {
+                  "type": "string"
+                },
+                "birthdate": {
+                  "type": "date"
+                }
+              }
             }
           }
         ],
@@ -64,18 +84,6 @@
         "responses": {
           "200": {
             "description": "success"
-          },
-          "400": {
-            "description": "bad request"
-          },
-          "404": {
-            "description": "Invalid URL"
-          },
-          "409": {
-            "description": "user already exists"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }
@@ -91,7 +99,15 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "#/components/schemas/userLogin"
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
@@ -99,18 +115,6 @@
         "responses": {
           "200": {
             "description": "success"
-          },
-          "400": {
-            "description": "bad request"
-          },
-          "404": {
-            "description": "Invalid URL"
-          },
-          "409": {
-            "description": "user already exists"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }
@@ -147,7 +151,12 @@
             "name": "body",
             "description": "Enter your email",
             "schema": {
-              "$ref": "#/components/schemas/forgotPassword"
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
@@ -173,7 +182,15 @@
             "name": "body",
             "description": "Enter password and passwordConfirm",
             "schema": {
-              "$ref": "#/components/schemas/resetPassword"
+              "type": "object",
+              "properties": {
+                "password": {
+                  "type": "string"
+                },
+                "passwordConfirm": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
@@ -202,7 +219,27 @@
             "name": "body",
             "description": "Enter updated information",
             "schema": {
-              "$ref": "#/components/schemas/user"
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "phone": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "gender": {
+                  "type": "string"
+                },
+                "birthdate": {
+                  "type": "date"
+                }
+              }
             }
           }
         ],
@@ -231,7 +268,30 @@
             "name": "body",
             "description": "Enter house details",
             "schema": {
-              "$ref": "#/components/schemas/house"
+              "type": "object",
+              "properties": {
+                "image": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                },
+                "bedrooms": {
+                  "type": "integer"
+                },
+                "bathrooms": {
+                  "type": "integer"
+                },
+                "price": {
+                  "type": "integer"
+                },
+                "status": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
@@ -319,7 +379,7 @@
         ],
         "responses": {
           "200": {
-            "description": "house added"
+            "description": "house retrieved"
           }
         }
       },
@@ -347,7 +407,30 @@
             "name": "body",
             "description": "Enter house details",
             "schema": {
-              "$ref": "#/components/schemas/house"
+              "type": "object",
+              "properties": {
+                "image": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                },
+                "bedrooms": {
+                  "type": "integer"
+                },
+                "bathrooms": {
+                  "type": "integer"
+                },
+                "price": {
+                  "type": "integer"
+                },
+                "status": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
@@ -383,75 +466,86 @@
           }
         }
       }
-    }
-  },
-  "components": {
-    "schemas": {
-      "user": {
-        "properties": {
-          "name": {
-            "type": "string"
+    },
+    "/api/v1/houses/{houseId}/createComment": {
+      "post": {
+        "tags": ["Comments"],
+        "summary": "add a comment to the house",
+        "description": "Return comment on a specific house",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string",
+            "description": "token"
           },
-          "phone": {
-            "type": "string"
+          {
+            "in": "path",
+            "name": "houseId",
+            "required": true,
+            "type": "integer",
+            "description": "houseId"
           },
-          "email": {
-            "type": "string"
-          },
-          "role": {
-            "type": "string"
-          },
-          "gender": {
-            "type": "string"
-          },
-          "birthdate": {
-            "type": "date"
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Enter your comment",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "comment": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "comment added"
           }
         }
-      },
-      "userLogin": {
-        "email": {
-          "type": "string"
-        },
-        "password": {
-          "type": "string"
+      }
+    },
+    "/api/v1/houses/getHouseCommented": {
+      "get": {
+        "tags": ["Comments"],
+        "summary": "get commented houses",
+        "description": "Return list of houses you commented",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string",
+            "description": "token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "comment on house retrieved"
+          }
         }
-      },
-      "resetPassword": {
-        "password": {
-          "type": "string"
-        },
-        "passwordConfirm": {
-          "type": "string"
-        }
-      },
-      "forgotPassword": {
-        "email": {
-          "type": "string"
-        }
-      },
-      "house": {
-        "properties": {
-          "image": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "location": {
-            "type": "string"
-          },
-          "bedrooms": {
-            "type": "integer"
-          },
-          "bathrooms": {
-            "type": "integer"
-          },
-          "price": {
-            "type": "integer"
-          },
-          "status": {
-            "type": "string"
+      }
+    },
+    "/api/v1/houses/{houseId}/getComments": {
+      "get": {
+        "tags": ["Comments"],
+        "summary": "get comments on specific houses",
+        "description": "Return list of comments on posted house",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string",
+            "description": "token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "comment on house retrieved"
           }
         }
       }

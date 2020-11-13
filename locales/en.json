@@ -69,5 +69,8 @@
 	"bathrooms should be number": "bathrooms should be number",
 	"status is required": "status should be required",
 	"status should be ['available', 'not available']": "status should be ['available', 'not available']",
-	"status not empty": "status should not be empty"
+	"status not empty": "status should not be empty",
+	"wrong id": "wrong id",
+	"can't add new comment": "can't add new comment",
+	"can't get comments": "can't get comments"
 }

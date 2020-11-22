@@ -6,8 +6,11 @@ import swaggerUi from 'swagger-ui-express'
 import userRoutes from './routes/userRoutes'
 import houseRoutes from './routes/houseRoutes'
 import morgan from 'morgan'
+import cors from 'cors'
 
 const app = express()
+app.use(cors())
+
 app.use(bodyParser.json())
 
 i18n.configure({

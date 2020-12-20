@@ -6,9 +6,7 @@ const { House } = Model
 
 class houseController {
     static async getAllHouses(req, res) {
-        const houses = await House.findAll(
-            { attributes: ['image', 'description'] }
-        )
+        const houses = await House.findAll()
         res.status(200).json({ houses })
     }
 

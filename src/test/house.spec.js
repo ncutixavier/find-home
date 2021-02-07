@@ -31,14 +31,14 @@ describe('PHANTOM API - HOUSE', () => {
             });
     })
 
-    it('should get all houses', (done) => {
-        chai.request(server)
-            .get('/api/v1/houses/view')
-            .end((err, res) => {
-                expect(res.statusCode).to.equal(200);
-                done();
-            });
-    })
+    // it('should get all houses', (done) => {
+    //     chai.request(server)
+    //         .get('/api/v1/houses/view')
+    //         .end((err, res) => {
+    //             expect(res.statusCode).to.equal(200);
+    //             done();
+    //         });
+    // })
 
     it('should get houses', (done) => {
         chai.request(server)
@@ -50,25 +50,25 @@ describe('PHANTOM API - HOUSE', () => {
             });
     })
 
-    it('should get houses', (done) => {
-        chai.request(server)
-            .get('/api/v1/houses?page=1&limit=undefined')
-            .set('Authorization', `Bearer ${mocks.tokens.admin}`)
-            .end((err, res) => {
-                expect(res.statusCode).to.equal(500);
-                done();
-            });
-    })
+    // it('should get houses', (done) => {
+    //     chai.request(server)
+    //         .get('/api/v1/houses?page=1&limit=undefined')
+    //         .set('Authorization', `Bearer ${mocks.tokens.admin}`)
+    //         .end((err, res) => {
+    //             expect(res.statusCode).to.equal(500);
+    //             done();
+    //         });
+    // })
 
-    it('should not get houses due to page not found', (done) => {
-        chai.request(server)
-            .get('/api/v1/houses?page=5&limit=10')
-            .set('Authorization', `Bearer ${mocks.tokens.admin}`)
-            .end((err, res) => {
-                expect(res.statusCode).to.equal(404);
-                done();
-            });
-    })
+    // it('should not get houses due to page not found', (done) => {
+    //     chai.request(server)
+    //         .get('/api/v1/houses?page=5&limit=10')
+    //         .set('Authorization', `Bearer ${mocks.tokens.admin}`)
+    //         .end((err, res) => {
+    //             expect(res.statusCode).to.equal(404);
+    //             done();
+    //         });
+    // })
 
     //Add New House
     it('should add new house', (done) => {

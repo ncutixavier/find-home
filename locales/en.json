@@ -72,5 +72,6 @@
 	"status not empty": "status should not be empty",
 	"wrong id": "wrong id",
 	"can't add new comment": "can't add new comment",
-	"can't get comments": "can't get comments"
+	"can't get comments": "can't get comments",
+	"price should minimun equal to 5000": "price should minimun equal to 5000"
 }

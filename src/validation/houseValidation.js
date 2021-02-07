@@ -6,11 +6,7 @@ exports.houseValidate = (req, res, next) => {
             "any.required": res.__('image is required'),
             "string.empty": res.__('image not empty')
         }),
-
-        description: Joi.string().required().messages({
-            "any.required": res.__('description is required'),
-            "string.empty": res.__('description not empty')
-        }),
+        
         location: Joi.string().required().messages({
             "any.required": res.__('location is required'),
             "string.empty": res.__('location not empty')
@@ -26,7 +22,7 @@ exports.houseValidate = (req, res, next) => {
         price: Joi.number().min(5000).required().messages({
             "any.required": res.__('price should be required'),
             "number.empty": res.__('price should not be empty'),
-            "number.min": res.__('price should minimun equal to 1'),
+            "number.min": res.__('price should minimun equal to 5000'),
             "any.only": res.__('price should be number number')
         }),
 

@@ -12,7 +12,7 @@ router
     .get(
         protectRoute.protect,
         protectRoute.restrictTo('client', 'landlord', 'admin'),
-        houseController.getProtectedHouses
+        houseController.getAllHouses
     )
     .post(
         protectRoute.protect,
@@ -21,7 +21,12 @@ router
         houseController.addNewHouse
     )
 
-router.get('/view', houseController.getAllHouses)
+// router.get(
+//     '/view',
+//     protectRoute.protect,
+//     protectRoute.restrictTo('client','landlord', 'admin'),
+//     houseController.getAllHouses
+// )
 
 router.get(
     '/getHouseCommented',
